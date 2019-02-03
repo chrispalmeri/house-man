@@ -1,3 +1,9 @@
+// src/main.js
+
+import inventory from './inventory.js';
+
 window.addEventListener("load", () => {
-  console.log('loaded');
+  document.querySelector('#loadInv').addEventListener('click', () => {
+    inventory.load();
+  });
 });
