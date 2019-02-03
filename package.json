@@ -1,0 +1,23 @@
+{
+  "name": "house-man",
+  "version": "1.0.0",
+  "description": "Web app for home maintenance and inventory things",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrispalmeri/house-man.git"
+  },
+  "author": "Chris Palmeri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chrispalmeri/house-man/issues"
+  },
+  "homepage": "https://github.com/chrispalmeri/house-man#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "sqlite3": "^4.0.6"
+  }
+}
