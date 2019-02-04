@@ -7,7 +7,13 @@ export default new function() {
       return res.json();
     })
     .then((json) => {
-      console.log(json);
+      let list = document.querySelector('#invList');
+      list.innerHTML = '';
+      json.forEach((item, index) => {
+        list.innerHTML = list.innerHTML +
+        '<li><button>Edit</button> <span>' +
+        item.item_name + '</span> <input /> <button>Order</button></li>';
+      })
     });
   }
   
@@ -23,7 +29,7 @@ export default new function() {
       return res.json();
     })
     .then((json) => {
-      console.log(json);
+      // whatever
     });
   }
 }
