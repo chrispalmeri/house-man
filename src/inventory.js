@@ -12,7 +12,8 @@ export default new function() {
       json.forEach((item, index) => {
         list.innerHTML = list.innerHTML +
         '<li><button>Edit</button> <span>' +
-        item.item_name + '</span> <input /> <button>Order</button></li>';
+        item.item_name + '</span> <input /> <button>Order</button>' +
+        '<button onclick="inventory.delete(' + item.item_id + '); inventory.load();">Delete</button></li>';
       })
     });
   }
@@ -24,6 +25,18 @@ export default new function() {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(data)
+    })
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      // whatever
+    });
+  }
+
+  this.delete = function(data) {
+    fetch('/items/' + data, {
+      method: "DELETE"
     })
     .then((res) => {
       return res.json();

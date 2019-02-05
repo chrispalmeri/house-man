@@ -40,15 +40,18 @@ app.post('/items', (req, res) => {
     item_name,
     item_quantity
   ) VALUES (
-    $item_name,
-    $item_quantity
-  )`, {
-    $item_name: req.body.item_name,
-    $item_quantity: req.body.item_quantity
-  }, (err) => {
+    "${req.body.item_name}",
+    "${req.body.item_quantity}"
+  )`, (err) => {
     res.status(200).end();
   });
   // SELECT last_insert_rowid()
+});
+
+app.delete('/items/:id', (req, res) => {
+  db.run(`DELETE FROM inventory WHERE item_id = "${req.params.id}"`, (err) => {
+    res.status(200).end();
+  });
 });
 
 app.listen(3000, () => {
