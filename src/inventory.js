@@ -1,5 +1,7 @@
 // src/inventory.js
 
+import ui from './ui.js';
+
 export default new function() {
   this.load = function() {
     fetch('/items')
@@ -37,9 +39,23 @@ export default new function() {
     });
   }
 
-  this.edit = function(id, data) {
-    console.log('edit', id);
-    /*fetch('/items/' + id, {
+  this.edit = function(id) {
+    fetch('/items/' + id)
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      json.forEach((item) => {
+        ui.write(item);
+      })
+    });
+  }
+
+  this.update = function(data) {
+    const id = data.item_id;
+    delete data.item_id;
+
+    fetch('/items/' + id, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -51,10 +67,10 @@ export default new function() {
     })
     .then((json) => {
       // whatever
-    });*/
+    });
   }
 
-  this.order = function(id, data) {
+  this.order = function(id) {
     console.log('order', id);
   }
 

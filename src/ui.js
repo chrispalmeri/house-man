@@ -3,6 +3,7 @@
 export default new function() {
   this.read = function() {
     return {
+      item_id: document.querySelector('#item_id').value,
       item_name: document.querySelector('#item_name').value,
       item_quantity: document.querySelector('#item_quantity').value,
       reorder_point: document.querySelector('#reorder_point').value,
@@ -12,6 +13,7 @@ export default new function() {
   };
 
   this.write = function(data) {
+    document.querySelector('#item_id').value = data.item_id;
     document.querySelector('#item_name').value = data.item_name;
     document.querySelector('#item_quantity').value = data.item_quantity;
     document.querySelector('#reorder_point').value = data.reorder_point;
@@ -20,6 +22,7 @@ export default new function() {
   };
 
   this.delete = function() {
+    document.querySelector('#item_id').value = '';
     document.querySelector('#item_name').value = '';
     document.querySelector('#item_quantity').value = '';
     document.querySelector('#reorder_point').value = '';

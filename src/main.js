@@ -19,5 +19,11 @@ window.addEventListener("load", () => {
     inventory.load();
   });
   
+  document.querySelector('#upInv').addEventListener('click', () => {
+    inventory.update(ui.read());
+    ui.delete();
+    inventory.load();
+  });
+  
   inventory.load();
 });
