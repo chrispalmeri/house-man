@@ -1,3 +1,6 @@
+* {
+  font: 14px Arial;
+}
 ul {
   list-style: none;
   padding: 0;
@@ -16,11 +19,11 @@ li > * {
 input, button {
   flex-grow: 0;
 }
-p {
+div {
   float: right;
+  text-align: right;
   line-height: 2;
 }
-p input {
-  float: right;
+div input {
   margin: 5px;
 }

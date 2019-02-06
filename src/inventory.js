@@ -10,10 +10,13 @@ export default new function() {
       let list = document.querySelector('#invList');
       list.innerHTML = '';
       json.forEach((item, index) => {
-        list.innerHTML = list.innerHTML +
-        '<li><button>Edit</button> <span>' +
-        item.item_name + '</span> <input /> <button>Order</button>' +
-        '<button onclick="inventory.delete(' + item.item_id + '); inventory.load();">Delete</button></li>';
+        list.innerHTML = list.innerHTML + `<li>
+          <button data-action="edit" data-id="${item.item_id}">Edit</button>
+          <span>${item.item_name}</span>
+          <input value="${item.item_quantity}" />
+          <button data-action="order" data-id="${item.item_id}">Order</button>
+          <button data-action="delete" data-id="${item.item_id}">Delete</button>
+        </li>`;
       })
     });
   }
@@ -34,8 +37,29 @@ export default new function() {
     });
   }
 
-  this.delete = function(data) {
-    fetch('/items/' + data, {
+  this.edit = function(id, data) {
+    console.log('edit', id);
+    /*fetch('/items/' + id, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      // whatever
+    });*/
+  }
+
+  this.order = function(id, data) {
+    console.log('order', id);
+  }
+
+  this.delete = function(id) {
+    fetch('/items/' + id, {
       method: "DELETE"
     })
     .then((res) => {
