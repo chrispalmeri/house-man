@@ -1,4 +1,4 @@
-// src/canvas.js
+// src/inventory.js
 
 export default new function() {
   this.load = function() {

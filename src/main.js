@@ -1,6 +1,7 @@
 // src/main.js
 
 import inventory from './inventory.js';
+import ui from './ui.js';
 
 window.addEventListener("load", () => {
   document.querySelector('#invList').addEventListener('click', (e) => {
@@ -13,18 +14,8 @@ window.addEventListener("load", () => {
   })
 
   document.querySelector('#addInv').addEventListener('click', () => {
-    inventory.add({
-      item_name: document.querySelector('#item_name').value,
-      item_quantity: document.querySelector('#item_quantity').value,
-      reorder_point: document.querySelector('#reorder_point').value,
-      reorder_store: document.querySelector('#reorder_store').value,
-      reorder_link: document.querySelector('#reorder_link').value
-    });
-    document.querySelector('#item_name').value = '';
-    document.querySelector('#item_quantity').value = '';
-    document.querySelector('#reorder_point').value = '';
-    document.querySelector('#reorder_store').value = '';
-    document.querySelector('#reorder_link').value = '';
+    inventory.add(ui.read());
+    ui.delete();
     inventory.load();
   });
   
