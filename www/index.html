@@ -7,15 +7,58 @@
     <script src="js/script.js"></script>
   </head>
   <body>
-    <div>
-      <input id="item_id" type="hidden" />
-      item_name: <input id="item_name" /><br />
-      item_quantity: <input id="item_quantity" /><br />
-      reorder_point: <input id="reorder_point" /><br />
-      reorder_store: <input id="reorder_store" /><br />
-      reorder_link: <input id="reorder_link" /><br />
-      <button id="addInv">Add</button> <button id="upInv">Update</button>
+    <h1>House Man</h1>
+    <p><button class="primary" id="show">New</button></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Order</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody id="invList"></tbody>
+    </table>
+    
+    <div id="mask">
+      <div class="modal">
+        <h2>Item detail</h2>
+        <table>
+          <thead>
+            <tr><th>Field</th><th>Value</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>item_name</td>
+              <td><input id="item_name" /></td>
+            </tr>
+            <tr>
+              <td>item_quantity</td>
+              <td><input id="item_quantity" /></td>
+            </tr>
+            <tr>
+              <td>reorder_point</td>
+              <td><input id="reorder_point" /></td>
+            </tr>
+            <tr>
+              <td>reorder_store</td>
+              <td><input id="reorder_store" /></td>
+            </tr>
+            <tr>
+              <td>reorder_link</td>
+              <td><input id="reorder_link" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="buttons">
+          <input id="item_id" type="hidden" />
+          <button id="can">Cancel</button>
+          <button class="primary" id="upInv">Save</button>
+        </p>
+      </div>
     </div>
-    <ul id="invList"></ul>
   </body>
 </html>

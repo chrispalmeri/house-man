@@ -1,29 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600');
 * {
-  font: 14px Arial;
+  color: rgb(46, 46, 46);
+  /*background: rgba(128, 128, 128, 0.2);*/
 }
-ul {
-  list-style: none;
-  padding: 0;
+body {
+  font: 16px 'Source Sans Pro', sans-serif;
+  margin: 24px;
 }
-li {
-  width: 500px;
-  display: flex;
-  justify-content: flex-end;
-  margin: 10px;
+h1, h2, p {
+  margin: 24px 0;
 }
-li > * {
-  width: 64px;
-  margin: 0 5px;
-  flex-grow: 1;
+p {
+  line-height: 1.6;
+}
+table {
+  /*width: 100%;*/
+  border-spacing: 0;
+}
+th {
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+}
+td {
+  font: inherit;
+  border-top: 1px solid rgb(224, 220, 215);
 }
 input, button {
-  flex-grow: 0;
+  font: inherit;
+  border: 1px solid rgb(204, 198, 191);
+  border-radius: 3px;
+  box-sizing: border-box;
+  outline: none;
+  line-height: normal;
 }
-div {
-  float: right;
-  text-align: right;
-  line-height: 2;
+button {
+  width: 80px;
+  color: rgb(73, 73, 73);
+  font-weight: 600;
+  background: rgb(247, 247, 248);
+  cursor: pointer;
 }
-div input {
-  margin: 5px;
+button:hover {
+  background: rgb(255, 255, 255);
+}
+.primary {
+  color: #fff;
+  background: rgb(0, 63, 236);
+  border: 1px solid rgb(0, 63, 236);
+}
+.primary:hover {
+  background: rgb(40, 98, 255);
+  border: 1px solid rgb(40, 98, 255);
+}
+
+th, td {
+  padding: 0 24px 0 0;
+  line-height: 3;
+}
+td:first-child {
+  padding: 0 48px 0 0;
+}
+td:last-child {
+  padding: 0;
+}
+input, button {
+  padding: 6px 8px;
+}
+
+input::-moz-focus-inner, button::-moz-focus-inner  {
+  padding: 0;
+  border: 0;
+}
+
+#mask {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(128, 128, 128, 0.2);
+}
+.modal {
+  background: #fff;
+  padding: 0 24px;
+  border-radius: 3px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+.buttons button {
+  margin-left: 24px;
+}
+
+#invList input {
+  text-align: center;
+  width: 80px;
 }

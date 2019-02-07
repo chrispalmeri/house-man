@@ -12,17 +12,19 @@ window.addEventListener("load", () => {
       inventory.load();
     }
   })
-
-  document.querySelector('#addInv').addEventListener('click', () => {
-    inventory.add(ui.read());
-    ui.delete();
-    inventory.load();
-  });
   
   document.querySelector('#upInv').addEventListener('click', () => {
     inventory.update(ui.read());
     ui.delete();
     inventory.load();
+  });
+
+  document.querySelector('#show').addEventListener('click', () => {
+    ui.show();
+  });
+
+  document.querySelector('#can').addEventListener('click', () => {
+    ui.delete();
   });
   
   inventory.load();

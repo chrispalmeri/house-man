@@ -12,30 +12,14 @@ export default new function() {
       let list = document.querySelector('#invList');
       list.innerHTML = '';
       json.forEach((item, index) => {
-        list.innerHTML = list.innerHTML + `<li>
-          <button data-action="edit" data-id="${item.item_id}">Edit</button>
-          <span>${item.item_name}</span>
-          <input value="${item.item_quantity}" />
-          <button data-action="order" data-id="${item.item_id}">Order</button>
-          <button data-action="delete" data-id="${item.item_id}">Delete</button>
-        </li>`;
+        list.innerHTML = list.innerHTML + `<tr>
+          <td>${item.item_name}</td>
+          <td><input value="${item.item_quantity}" /></td>
+          <td><button data-action="order" data-id="${item.item_id}">Order</button></td>
+          <td><button data-action="edit" data-id="${item.item_id}">Edit</button></td>
+          <td><button data-action="delete" data-id="${item.item_id}">Delete</button></td>
+        </tr>`;
       })
-    });
-  }
-  
-  this.add = function(data) {
-    fetch('/items', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    })
-    .then((res) => {
-      return res.json();
-    })
-    .then((json) => {
-      // whatever
     });
   }
 
@@ -48,14 +32,19 @@ export default new function() {
       json.forEach((item) => {
         ui.write(item);
       })
+      ui.show();
     });
   }
 
   this.update = function(data) {
-    const id = data.item_id;
-    delete data.item_id;
+    let url = '/items';
 
-    fetch('/items/' + id, {
+    if(data.item_id) {
+      url = '/items/' + data.item_id;
+      delete data.item_id;
+    }
+
+    fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
