@@ -30,5 +30,21 @@ window.addEventListener("load", () => {
     dialog.close('edit');
   });
   
+  document.querySelector('#noOrder').addEventListener('click', () => {
+    dialog.close('order');
+  });
+  
+  document.querySelector('#doDelete').addEventListener('click', () => {
+    let id = document.querySelector('#delete_id').value;
+    inventory.really(id);
+    document.querySelector('#delete_id').value = '';
+    dialog.close('delete');
+    inventory.load();
+  });
+  document.querySelector('#noDelete').addEventListener('click', () => {
+    document.querySelector('#delete_id').value = '';
+    dialog.close('delete');
+  });
+  
   inventory.load();
 });

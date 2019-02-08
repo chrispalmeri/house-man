@@ -61,10 +61,15 @@ export default new function() {
   }
 
   this.order = function(id) {
-    console.log('order', id);
+    dialog.open('order');
   }
 
   this.delete = function(id) {
+    document.querySelector('#delete_id').value = id;
+    dialog.open('delete');
+  }
+
+  this.really = function(id) {
     fetch('/items/' + id, {
       method: "DELETE"
     })

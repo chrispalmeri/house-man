@@ -16,10 +16,9 @@ Then navigate to http://localhost:3000
 
 # To do
 
+* break `ui` into `order`, `edit`, `delete`
 * add class for api
 * add `in_transit`, `inactive`, and `category` fields
-* have a delete confirmation
 * autosave quantity
-* order modal
 * move delete button into edit screen
 * more button colors
