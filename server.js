@@ -5,13 +5,16 @@ let db = new sqlite3.Database('database.db');
 db.run(`CREATE TABLE IF NOT EXISTS inventory (
   item_id INTEGER PRIMARY KEY,
   item_name TEXT,
+  item_category TEXT,
   item_quantity INTEGER,
   reorder_point INTEGER,
   reorder_store TEXT,
   reorder_link TEXT,
   order_date TEXT,
   order_quantity INTEGER,
-  order_count INTEGER
+  order_count INTEGER,
+  order_pending INTEGER,
+  inactive INTEGER
 )`);
 
 let app = express();

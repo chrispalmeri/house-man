@@ -18,7 +18,7 @@ Then navigate to http://localhost:3000
 
 * break `ui` into `order`, `edit`, `delete`
 * add class for api
-* add `in_transit`, `inactive`, and `category` fields
 * autosave quantity
 * move delete button into edit screen
 * more button colors
+* no items message is janky

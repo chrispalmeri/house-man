@@ -11,16 +11,20 @@ export default new function() {
     })
     .then((json) => {
       let list = document.querySelector('#invList');
-      list.innerHTML = '';
-      json.forEach((item, index) => {
-        list.innerHTML = list.innerHTML + `<tr>
-          <td>${item.item_name}</td>
-          <td><input value="${item.item_quantity}" /></td>
-          <td><button data-action="order" data-id="${item.item_id}">Order</button></td>
-          <td><button data-action="edit" data-id="${item.item_id}">Edit</button></td>
-          <td><button data-action="delete" data-id="${item.item_id}">Delete</button></td>
-        </tr>`;
-      })
+      if(json.length > 0) {
+        list.innerHTML = '';
+        json.forEach((item, index) => {
+          list.innerHTML = list.innerHTML + `<tr>
+            <td>${item.item_name}</td>
+            <td><input value="${item.item_quantity}" /></td>
+            <td><button data-action="order" data-id="${item.item_id}">Order</button></td>
+            <td><button data-action="edit" data-id="${item.item_id}">Edit</button></td>
+            <td><button data-action="delete" data-id="${item.item_id}">Delete</button></td>
+          </tr>`;
+        })
+      } else {
+        list.innerHTML = 'There are no items';
+      }
     });
   }
 
