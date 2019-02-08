@@ -19,6 +19,9 @@ export default new function() {
     document.querySelector('#reorder_point').value = data.reorder_point;
     document.querySelector('#reorder_store').value = data.reorder_store;
     document.querySelector('#reorder_link').value = data.reorder_link;
+    
+    document.querySelector('#od_store').innerHTML = data.reorder_store;
+    document.querySelector('#od_link').innerHTML = data.reorder_link;
   };
 
   this.delete = function() {

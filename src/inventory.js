@@ -1,6 +1,5 @@
 // src/inventory.js
 
-import dialog from './dialog.js';
 import ui from './ui.js';
 
 export default new function() {
@@ -37,7 +36,6 @@ export default new function() {
       json.forEach((item) => {
         ui.write(item);
       })
-      dialog.open('edit');
     });
   }
 
@@ -62,15 +60,6 @@ export default new function() {
     .then((json) => {
       // whatever
     });
-  }
-
-  this.order = function(id) {
-    dialog.open('order');
-  }
-
-  this.delete = function(id) {
-    document.querySelector('#delete_id').value = id;
-    dialog.open('delete');
   }
 
   this.really = function(id) {

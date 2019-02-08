@@ -9,7 +9,9 @@ window.addEventListener("load", () => {
     if (e.target.nodeName === 'BUTTON') {
       const action = e.target.getAttribute('data-action');
       const id = e.target.getAttribute('data-id');
-      inventory[action](id);
+      // inventory[action](id);
+      inventory.edit(id);
+      dialog.open(action);
       inventory.load();
     }
   })
@@ -31,18 +33,20 @@ window.addEventListener("load", () => {
   });
   
   document.querySelector('#noOrder').addEventListener('click', () => {
+    ui.delete();
     dialog.close('order');
   });
   
   document.querySelector('#doDelete').addEventListener('click', () => {
-    let id = document.querySelector('#delete_id').value;
+    let id = document.querySelector('#item_id').value;
     inventory.really(id);
-    document.querySelector('#delete_id').value = '';
+    
+    ui.delete();
     dialog.close('delete');
     inventory.load();
   });
   document.querySelector('#noDelete').addEventListener('click', () => {
-    document.querySelector('#delete_id').value = '';
+    ui.delete();
     dialog.close('delete');
   });
   

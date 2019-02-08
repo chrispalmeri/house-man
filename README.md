@@ -10,15 +10,13 @@ Run `npm install` to setup
 
 Then run `npm run build` to build `www/script.js`
 
-Then run `node server.js` to start server (`Ctrl + C` to stop server)
+Then run `npm start` to start server (`Ctrl + C` to stop server)
 
 Then navigate to http://localhost:3000
 
 # To do
 
-* break `ui` into `order`, `edit`, `delete`
 * add class for api
 * autosave quantity
-* move delete button into edit screen
 * more button colors
 * no items message is janky
