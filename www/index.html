@@ -23,42 +23,41 @@
       <tbody id="invList"></tbody>
     </table>
     
-    <div id="mask">
-      <div class="modal">
-        <h2>Item detail</h2>
-        <table>
-          <thead>
-            <tr><th>Field</th><th>Value</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>item_name</td>
-              <td><input id="item_name" /></td>
-            </tr>
-            <tr>
-              <td>item_quantity</td>
-              <td><input id="item_quantity" /></td>
-            </tr>
-            <tr>
-              <td>reorder_point</td>
-              <td><input id="reorder_point" /></td>
-            </tr>
-            <tr>
-              <td>reorder_store</td>
-              <td><input id="reorder_store" /></td>
-            </tr>
-            <tr>
-              <td>reorder_link</td>
-              <td><input id="reorder_link" /></td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="buttons">
-          <input id="item_id" type="hidden" />
-          <button id="can">Cancel</button>
-          <button class="primary" id="upInv">Save</button>
-        </p>
-      </div>
+    <div class="dialog" id="edit">
+      <h2>Item detail</h2>
+      <table>
+        <thead>
+          <tr><th>Field</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>item_name</td>
+            <td><input id="item_name" /></td>
+          </tr>
+          <tr>
+            <td>item_quantity</td>
+            <td><input id="item_quantity" /></td>
+          </tr>
+          <tr>
+            <td>reorder_point</td>
+            <td><input id="reorder_point" /></td>
+          </tr>
+          <tr>
+            <td>reorder_store</td>
+            <td><input id="reorder_store" /></td>
+          </tr>
+          <tr>
+            <td>reorder_link</td>
+            <td><input id="reorder_link" /></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="buttons">
+        <input id="item_id" type="hidden" />
+        <button id="can">Cancel</button>
+        <button class="primary" id="upInv">Save</button>
+      </p>
     </div>
+    
   </body>
 </html>

@@ -73,18 +73,19 @@ input::-moz-focus-inner, button::-moz-focus-inner  {
   border: 0;
 }
 
-#mask {
+.modal {
   height: 100%;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   background: rgba(128, 128, 128, 0.2);
 }
-.modal {
+.dialog {
+  display: none;
   background: #fff;
   padding: 0 24px;
   border-radius: 3px;

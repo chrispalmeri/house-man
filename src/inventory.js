@@ -1,5 +1,6 @@
 // src/inventory.js
 
+import dialog from './dialog.js';
 import ui from './ui.js';
 
 export default new function() {
@@ -32,7 +33,7 @@ export default new function() {
       json.forEach((item) => {
         ui.write(item);
       })
-      ui.show();
+      dialog.open('edit');
     });
   }
 

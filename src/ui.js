@@ -28,10 +28,5 @@ export default new function() {
     document.querySelector('#reorder_point').value = '';
     document.querySelector('#reorder_store').value = '';
     document.querySelector('#reorder_link').value = '';
-    document.querySelector('#mask').style.display = 'none';
   };
-
-  this.show = function() {
-    document.querySelector('#mask').style.display = 'flex';
-  }
 }
