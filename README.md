@@ -19,6 +19,5 @@ Then navigate to http://localhost:3000
 * add class for api
 * refactor
 * autosave quantity
-* no items message is janky
 * add tabs
 * add last date table

@@ -15,6 +15,7 @@ p {
   line-height: 1.6;
 }
 table {
+  width: 100%;
   border-spacing: 0;
 }
 th {
@@ -107,7 +108,14 @@ input::-moz-focus-inner, button::-moz-focus-inner  {
   margin-left: 24px;
 }
 
+#invList {
+  max-width: 760px;
+}
+
 #invList input {
   text-align: center;
   width: 80px;
+}
+#invList p {
+  text-align: center;
 }
