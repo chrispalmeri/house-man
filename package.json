@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "house-man",
+  "name": "main-man",
   "version": "1.0.0",
   "description": "Web app for home maintenance and inventory things",
   "main": "server.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chrispalmeri/house-man.git"
+    "url": "git+https://github.com/chrispalmeri/main-man.git"
   },
   "author": "Chris Palmeri",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chrispalmeri/house-man/issues"
+    "url": "https://github.com/chrispalmeri/main-man/issues"
   },
-  "homepage": "https://github.com/chrispalmeri/house-man#readme",
+  "homepage": "https://github.com/chrispalmeri/main-man#readme",
   "dependencies": {
     "express": "^4.16.4",
     "rollup": "^1.1.2",
