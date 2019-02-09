@@ -8,12 +8,12 @@
   </head>
   <body>
     <h1>Main Man</h1>
-    <p><button class="primary" id="show">Add</button></p>
+    <p><button class="primary" id="add">Add</button></p>
 
-    <div id="invList"></div>
+    <div id="items"></div>
     
     <div class="dialog" id="edit">
-      <h2>Item detail</h2>
+      <h2>Item details</h2>
       <table>
         <thead>
           <tr><th>Field</th><th>Value</th></tr>
@@ -43,23 +43,23 @@
       </table>
       <p class="buttons">
         <input id="item_id" type="hidden" />
-        <button id="can">Cancel</button>
-        <button class="primary" id="upInv">Save</button>
+        <button id="noEdit">Cancel</button>
+        <button class="primary" id="doEdit">Save</button>
       </p>
     </div>
     
     <div class="dialog" id="order">
       <h2>Order item</h2>
-      <p>reorder_store <span id="od_store"></span></p>
-      <p>reorder_link <span id="od_link"></span></p>
+      <p id="display_store"></p>
+      <p id="display_link"></p>
       <p class="buttons">
         <button id="noOrder">Cancel</button>
-        <button class="primary" id="doOrder">Order</button>
+        <button class="primary" id="doOrder">Ordered</button>
       </p>
     </div>
     
     <div class="dialog" id="delete">
-      <h2>Really delete</h2>
+      <h2>Really delete?</h2>
       <p class="buttons">
         <button id="noDelete">Cancel</button>
         <button class="red" id="doDelete">Delete</button>

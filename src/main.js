@@ -5,50 +5,52 @@ import inventory from './inventory.js';
 import ui from './ui.js';
 
 window.addEventListener("load", () => {
-  document.querySelector('#invList').addEventListener('click', (e) => {
-    if (e.target.nodeName === 'BUTTON') {
-      const action = e.target.getAttribute('data-action');
-      const id = e.target.getAttribute('data-id');
-      // inventory[action](id);
-      inventory.edit(id);
-      dialog.open(action);
-      inventory.load();
-    }
-  })
-  
-  document.querySelector('#upInv').addEventListener('click', () => {
-    inventory.update(ui.read());
-    ui.delete();
-    dialog.close('edit');
-    inventory.load();
-  });
-
-  document.querySelector('#show').addEventListener('click', () => {
+  document.getElementById('add').addEventListener('click', () => {
     dialog.open('edit');
   });
 
-  document.querySelector('#can').addEventListener('click', () => {
+  document.getElementById('items').addEventListener('click', (e) => {
+    if (e.target.nodeName === 'BUTTON') {
+      const action = e.target.getAttribute('data-action');
+      const id = e.target.getAttribute('data-id');
+      inventory.get(id);
+      dialog.open(action);
+      inventory.all();
+    }
+  });
+
+  document.getElementById('doEdit').addEventListener('click', () => {
+    inventory.set(ui.read());
+    ui.delete();
+    dialog.close('edit');
+    inventory.all();
+  });
+  document.getElementById('noEdit').addEventListener('click', () => {
     ui.delete();
     dialog.close('edit');
   });
   
-  document.querySelector('#noOrder').addEventListener('click', () => {
+  document.getElementById('doOrder').addEventListener('click', () => {
+    // order things
+    console.log('Order button doesn\'t work');
+  });
+  document.getElementById('noOrder').addEventListener('click', () => {
     ui.delete();
     dialog.close('order');
   });
   
-  document.querySelector('#doDelete').addEventListener('click', () => {
-    let id = document.querySelector('#item_id').value;
-    inventory.really(id);
+  document.getElementById('doDelete').addEventListener('click', () => {
+    let id = document.getElementById('item_id').value;
+    inventory.delete(id);
     
     ui.delete();
     dialog.close('delete');
-    inventory.load();
+    inventory.all();
   });
-  document.querySelector('#noDelete').addEventListener('click', () => {
+  document.getElementById('noDelete').addEventListener('click', () => {
     ui.delete();
     dialog.close('delete');
   });
   
-  inventory.load();
+  inventory.all();
 });

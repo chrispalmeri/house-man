@@ -108,14 +108,13 @@ input::-moz-focus-inner, button::-moz-focus-inner  {
   margin-left: 24px;
 }
 
-#invList {
+#items {
   max-width: 760px;
 }
-
-#invList input {
+#items p {
+  text-align: center;
+}
+#items input {
   text-align: center;
   width: 80px;
-}
-#invList p {
-  text-align: center;
 }

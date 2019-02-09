@@ -3,13 +3,13 @@
 import ui from './ui.js';
 
 export default new function() {
-  this.load = function() {
+  this.all = function() {
     fetch('/items')
     .then((res) => {
       return res.json();
     })
     .then((json) => {
-      let list = document.querySelector('#invList');
+      let list = document.getElementById('items');
       let html = '';
       if(json.length > 0) {
         html = `<table><thead><tr>
@@ -32,7 +32,7 @@ export default new function() {
     });
   }
 
-  this.edit = function(id) {
+  this.get = function(id) {
     fetch('/items/' + id)
     .then((res) => {
       return res.json();
@@ -44,7 +44,7 @@ export default new function() {
     });
   }
 
-  this.update = function(data) {
+  this.set = function(data) {
     let url = '/items';
 
     if(data.item_id) {
@@ -58,24 +58,12 @@ export default new function() {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(data)
-    })
-    .then((res) => {
-      return res.json();
-    })
-    .then((json) => {
-      // whatever
     });
   }
 
-  this.really = function(id) {
+  this.delete = function(id) {
     fetch('/items/' + id, {
       method: "DELETE"
-    })
-    .then((res) => {
-      return res.json();
-    })
-    .then((json) => {
-      // whatever
     });
   }
 }
