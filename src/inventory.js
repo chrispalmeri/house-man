@@ -1,6 +1,7 @@
 // src/inventory.js
 
 import ui from './ui.js';
+import current from './current.js';
 
 export default new function() {
   this.all = function() {
@@ -39,6 +40,7 @@ export default new function() {
     })
     .then((json) => {
       json.forEach((item) => {
+        current.data = item;
         ui.write(item);
       })
     });
@@ -50,6 +52,20 @@ export default new function() {
     if(data.item_id) {
       url = '/items/' + data.item_id;
       delete data.item_id;
+    }
+
+    if(data.ordered) {
+      data.order_date = new Date().getTime();
+      data.order_count = current.data.order_count + 1;
+      data.order_pending = 1;
+
+      if(current.data.order_date) {
+        let interval = data.order_date - current.data.order_date;
+        let cumulative = current.data.order_interval * (current.data.order_count - 1);
+        data.order_interval = Math.floor((interval + cumulative) / current.data.order_count);
+      }
+
+      delete data.ordered;
     }
 
     fetch(url, {

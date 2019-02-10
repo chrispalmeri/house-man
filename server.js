@@ -10,9 +10,10 @@ db.run(`CREATE TABLE IF NOT EXISTS inventory (
   reorder_point INTEGER,
   reorder_store TEXT,
   reorder_link TEXT,
-  order_date TEXT,
+  order_date INTEGER,
   order_quantity INTEGER,
   order_count INTEGER,
+  order_interval INTEGER,
   order_pending INTEGER,
   inactive INTEGER
 )`);
@@ -55,14 +56,14 @@ app.post('/items', (req, res) => {
 });
 
 app.post('/items/:id', (req, res) => {
-  db.run(`UPDATE inventory
-    SET item_name = "${req.body.item_name}",
-    item_quantity = "${req.body.item_quantity}",
-    reorder_point = "${req.body.reorder_point}",
-    reorder_store = "${req.body.reorder_store}",
-    reorder_link = "${req.body.reorder_link}"
-    WHERE item_id = "${req.params.id}"`,
-  (err) => {
+  let sql = 'UPDATE inventory SET ';
+  for(key in req.body) {
+    sql += `${key} = "${req.body[key]}", `;
+  }
+  sql = sql.replace(/,\s*$/, '');
+  sql += ` WHERE item_id = "${req.params.id}"`;
+
+  db.run(sql, (err) => {
     res.status(200).end();
   });
   // SELECT last_insert_rowid()

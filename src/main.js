@@ -31,8 +31,12 @@ window.addEventListener("load", () => {
   });
   
   document.getElementById('doOrder').addEventListener('click', () => {
-    // order things
-    console.log('Order button doesn\'t work');
+    let data = ui.read();
+    data.ordered = true;
+    inventory.set(data);
+    ui.delete();
+    dialog.close('order');
+    inventory.all();
   });
   document.getElementById('noOrder').addEventListener('click', () => {
     ui.delete();

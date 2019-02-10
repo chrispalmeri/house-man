@@ -16,9 +16,9 @@ Then navigate to http://localhost:3000
 
 # To do
 
-* add class for api
 * autosave quantity
-* add quantity to order dialog
+* add Receive functionality
+* add class for api
 * add tabs
 * add last date table
 * split server.js into multiple files
