@@ -18,7 +18,10 @@ Then navigate to http://localhost:3000
 
 * autosave quantity
 * add Receive functionality
+* display below reorder
 * add class for api
+* add category to edit screen
 * add tabs
 * add last date table
 * split server.js into multiple files
+* do you need icons to fit on mobile

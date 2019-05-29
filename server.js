@@ -2,21 +2,44 @@ const express = require('express');
 const sqlite3 = require('sqlite3');
 
 let db = new sqlite3.Database('database.db');
-db.run(`CREATE TABLE IF NOT EXISTS inventory (
-  item_id INTEGER PRIMARY KEY,
-  item_name TEXT,
-  item_category TEXT,
-  item_quantity INTEGER,
-  reorder_point INTEGER,
-  reorder_store TEXT,
-  reorder_link TEXT,
-  order_date INTEGER,
-  order_quantity INTEGER,
-  order_count INTEGER,
-  order_interval INTEGER,
-  order_pending INTEGER,
-  inactive INTEGER
-)`);
+db.serialize(() => {
+  db.run(`CREATE TABLE IF NOT EXISTS main (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    interval INTEGER,
+    category TEXT,
+    date INTEGER,
+    count INTEGER
+  )`);
+  db.run(`CREATE TABLE IF NOT EXISTS inv (
+    item_id INTEGER PRIMARY KEY,
+    item_name TEXT,
+    item_category TEXT,
+    item_quantity INTEGER,
+    reorder_point INTEGER,
+    reorder_store TEXT,
+    reorder_link TEXT,
+    order_date INTEGER,
+    order_quantity INTEGER,
+    order_count INTEGER,
+    order_interval INTEGER,
+    order_pending INTEGER,
+    inactive INTEGER,
+    expire_date INTEGER,
+    price REAL,
+    cooler INTEGER,
+    prefer_store INTEGER
+
+  )`);
+  db.run(`CREATE TABLE IF NOT EXISTS jan (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    interval INTEGER,
+    category TEXT,
+    date INTEGER,
+    count INTEGER
+  )`);
+});
 
 let app = express();
 app.use(express.static('www'));
