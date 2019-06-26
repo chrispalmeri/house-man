@@ -11,7 +11,7 @@ db.serialize(() => {
     date INTEGER,
     count INTEGER
   )`);
-  db.run(`CREATE TABLE IF NOT EXISTS inv (
+  db.run(`CREATE TABLE IF NOT EXISTS inventory (
     item_id INTEGER PRIMARY KEY,
     item_name TEXT,
     item_category TEXT,
